@@ -14,8 +14,8 @@ firebase.initializeApp({
   projectId: "fir-chat-app-acef6",
   storageBucket: "fir-chat-app-acef6.appspot.com",
   messagingSenderId: "96799744896",
-  appId: "1:96799744896:web:6097152dee09ce6ad5d765",
-  measurementId: "G-8R9SLZJBS6"
+  appId: "1:96799744896:web:d5470fa30752431ad5d765",
+  measurementId: "G-WXCCPQ618E"
 })
 
 const auth = firebase.auth();
