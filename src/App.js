@@ -106,7 +106,7 @@ function ChatRoom() {
 
 
 function ChatMessage(props) {
-  const { text, uid, photoURL } = props.message;
+  const { text, uid, photoURL,createdAt } = props.message;
   const timestamp = new Date(createdAt * 1000).toLocaleTimeString()
 
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
