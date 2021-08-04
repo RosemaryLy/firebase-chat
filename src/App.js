@@ -4,6 +4,7 @@ import './App.css';
 import firebase from 'firebase';
 import 'firebase/firestore';
 import 'firebase/auth';
+import 'firebase/analytics';
 
 import {useAuthState} from 'react-firebase-hooks/auth';
 import {useCollectionData} from 'react-firebase-hooks/firestore';
@@ -30,6 +31,7 @@ function App() {
       <header className="App-header">
         <h1>Cute Superchat💬</h1>
       </header>
+      <SignOut />
       <section>
         {user ? <ChatRoom /> : <SignIn />}
       </section>
