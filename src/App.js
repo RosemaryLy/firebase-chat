@@ -7,7 +7,6 @@ import 'firebase/auth';
 
 import {useAuthState} from 'react-firebase-hooks/auth';
 import {useCollectionData} from 'react-firebase-hooks/firestore';
-import { useRef, useState } from 'react';
 
 firebase.initializeApp({
   apiKey: "AIzaSyC3qj_AyDdxwMzCmKk9NiujPP3tV7e6QM4",
