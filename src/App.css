@@ -107,7 +107,12 @@ button:disabled {
   margin: 0 auto;
 }
 
-
+.sign-out {
+  color: #282c34;
+  background: white;
+  max-width: 400px;
+  margin: 0 auto;
+}
 
 
 ul, li {
@@ -146,7 +151,7 @@ p {
   color: black;
 }
 
-timestamp {
+.timestamp{
    font-size: 10px;
  }
 

@@ -55,7 +55,7 @@ function SignIn() {
 
 function SignOut() {
   return auth.currentUser && (
-    <button onClick={() => auth.signOut()}>Sign Out</button>
+    <button className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
   )
 }
 
@@ -112,9 +112,11 @@ function ChatMessage(props) {
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
   return (<>
+    <p className="timestamp">{timestamp}</p>
     <div className={`message ${messageClass}`}>
       <img src={photoURL || 'https://avataaars.io/?avatarStyle=Circle&topType=LongHairBob&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=Heather&eyeType=Happy&eyebrowType=Default&mouthType=Default&skinColor=Light'} alt="User" />
-      <p>{text} <timestamp>{timestamp}</timestamp></p>
+      <p>{text}
+      </p>
     </div>
   </>)
 }
