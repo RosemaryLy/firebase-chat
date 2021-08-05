@@ -28,8 +28,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>🌸💬 Let's Chat! 💬🌸</h1>
+        <SignOut />
       </header>
-      <SignOut />
       <section>
         {user ? <ChatRoom /> : <SignIn />}
       </section>
@@ -56,7 +56,7 @@ function SignIn() {
 
 function SignOut() {
   return auth.currentUser && (
-    <button className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
+    <button onClick={() => auth.signOut()}>Sign Out</button>
   )
 }
 
