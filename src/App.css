@@ -10,7 +10,6 @@ body {
 
 .App header {
   background-color: #64A6BD;
-  height: 10vh;
   min-height: 50px;
   color: white;
   position: fixed;
@@ -109,12 +108,21 @@ button:disabled {
 }
 
 .sign-out {
-  color: #282c34;
+  color: lightblue;
   background: white;
-  max-width: 400px;
+  text-align: center;
   margin: 0 auto;
+  border-radius: 15px;
+  margin:auto 0 auto auto;
+  font-size: 1.25rem;
+  
 }
 
+
+button:hover {
+  color:pink;
+  background: white;  
+}
 
 ul, li {
   text-align: left;
