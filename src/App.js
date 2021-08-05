@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Cute Superchat💬</h1>
+        <h1>🌸💬 Let's Chat! 💬🌸</h1>
       </header>
       <SignOut />
       <section>
@@ -47,7 +47,8 @@ function SignIn() {
   return (
     <>
       <button className="sign-in"onClick={signInWithGoogle}>Sign in with Google</button>
-      <p>Do not violate the community guidelines or you will be banned for life!</p>
+      <div className="center">
+        Do not violate the community guidelines or you will be banned for life!</div>
     </>
   )
 
@@ -55,7 +56,7 @@ function SignIn() {
 
 function SignOut() {
   return auth.currentUser && (
-    <button onClick={() => auth.signOut()}>Sign Out</button>
+    <button className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
   )
 }
 
@@ -98,7 +99,7 @@ function ChatRoom() {
 
       <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="say something nice" />
 
-      <button type="submit" disabled={!formValue|| formValue.replace(/^\s+/, '').replace(/\s+$/, '') === ''}>🕊️</button>
+      <button type="submit" disabled={!formValue|| formValue.replace(/^\s+/, '').replace(/\s+$/, '') === ''}>✉️</button>
 
     </form>
   </>)
@@ -107,14 +108,19 @@ function ChatRoom() {
 
 function ChatMessage(props) {
   const { text, uid, photoURL,createdAt } = props.message;
-  const timestamp = new Date(createdAt * 1000).toLocaleTimeString()
-
+  const datestamp = new Date().toDateString();
+  const timestamp = new Date(createdAt * 1000).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
+  const datetime = datestamp+ " " + timestamp
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
   return (<>
+  <div className="center">
+    <p className="timestamp">{datetime}</p>
+    </div>
     <div className={`message ${messageClass}`}>
       <img src={photoURL || 'https://avataaars.io/?avatarStyle=Circle&topType=LongHairBob&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=Heather&eyeType=Happy&eyebrowType=Default&mouthType=Default&skinColor=Light'} alt="User" />
-      <p>{text} <timestamp>{timestamp}</timestamp></p>
+      <p>{text}
+      </p>
     </div>
   </>)
 }
