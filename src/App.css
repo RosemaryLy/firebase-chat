@@ -1,5 +1,5 @@
 body {
-  background-color: #282c34;
+  background-color: #c4c4c4;
 }
 
 .App {
@@ -9,7 +9,7 @@ body {
 }
 
 .App header {
-  background-color: #181717;
+  background-color: #64A6BD;
   height: 10vh;
   min-height: 50px;
   color: white;
@@ -30,7 +30,7 @@ body {
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
-  background-color: rgb(40, 37, 53);
+  background-color: #90A8C3;
 }
 
 main {
@@ -67,7 +67,7 @@ form {
 
 form button {
   width: 20%;
-  background-color: rgb(56, 56, 143);
+  background-color: rgb(82,165,203);
 }
 
 
@@ -105,6 +105,7 @@ button:disabled {
   background: white;
   max-width: 400px;
   margin: 0 auto;
+  border-radius: 15px;
 }
 
 .sign-out {
@@ -131,6 +132,13 @@ p {
   text-align: center;
 }
 
+.center{
+  padding: 10px 20px;
+  display: inline-block;
+  justify-content: center;
+  color: white;
+}
+
 .message {
   display: flex;
   align-items: center;
@@ -143,7 +151,7 @@ p {
 
 .sent p {
   color: white;
-  background: #0b93f6;
+  background: #D7B9D5;
   align-self: flex-end;
 }
 .received p {
@@ -153,6 +161,9 @@ p {
 
 .timestamp{
    font-size: 10px;
+   display: inline-block;
+  justify-content: center;
+  color: white;
  }
 
 img {
