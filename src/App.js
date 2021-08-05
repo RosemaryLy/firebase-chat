@@ -27,9 +27,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>🌸💬 Let's Chat! 💬🌸</h1>
+        <h1>🌸 💬 Let's Chat! 💬 🌸</h1>
+        <SignOut />
       </header>
-      <SignOut />
       <section>
         {user ? <ChatRoom /> : <SignIn />}
       </section>
@@ -56,7 +56,7 @@ function SignIn() {
 
 function SignOut() {
   return auth.currentUser && (
-    <button className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
+    <button className= "sign-out"onClick={() => auth.signOut()}>SIGN OUT</button>
   )
 }
 
@@ -108,10 +108,11 @@ function ChatRoom() {
 
 function ChatMessage(props) {
   const { text, uid, photoURL,createdAt } = props.message;
-  const datestamp = new Date().toDateString();
+  const datestamp = new Date(createdAt.toDate()).toDateString();
   const timestamp = new Date(createdAt * 1000).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
   const datetime = datestamp+ " " + timestamp
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
+  console.log(createdAt);
 
   return (<>
   <div className="center">
