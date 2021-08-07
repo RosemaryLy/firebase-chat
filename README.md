@@ -1,6 +1,13 @@
-# Getting Started with Create React App
+# Let's Chat | A single group React Firebase chat room
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This application uses React in the frontend and Firestore for the backend. This chat app can autheticate a user using Google to login to the application, used React hooks with Firestore for realtime sync of data and also has secuirity logic implmented to ban a user for life if they break the community guidelines (bad words filter). Github actions was also used for continous integration and deployment. 
+
+## Made with
+
+React, Firebase, CSS
+
+## Demo
+https://fir-chat-app-acef6.web.app/
 
 ## Available Scripts
 
