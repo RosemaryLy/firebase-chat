@@ -1,5 +1,6 @@
 import React, {useRef, useState} from 'react';
 import './App.css';
+import image from './google-logo.png'
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';
@@ -46,7 +47,7 @@ function SignIn() {
 
   return (
     <>
-      <button className="sign-in"onClick={signInWithGoogle}>Sign in with Google</button>
+      <button className="sign-in"onClick={signInWithGoogle}><img src={image} alt='Google Logo'/>Sign in with Google</button>
       <div className="center">
         Do not violate the community guidelines or you will be banned for life!</div>
     </>
@@ -63,12 +64,11 @@ function SignOut() {
 function ChatRoom() {
   const dummy = useRef();
   const messagesRef = firestore.collection('messages');
-  const query = messagesRef.orderBy('createdAt').limitToLast(15);
+  const query = messagesRef.orderBy('createdAt').limitToLast(25);
 
   const [messages] = useCollectionData(query, { idField: 'id' });
 
   const [formValue, setFormValue] = useState('');
-
 
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -81,14 +81,12 @@ function ChatRoom() {
       uid,
       photoURL
     })
-
     setFormValue('');
     dummy.current.scrollIntoView({ behavior: 'smooth' });
   }
 
   return (<>
     <main>
-
       {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
 
       <div ref={dummy}></div>
@@ -108,20 +106,20 @@ function ChatRoom() {
 
 function ChatMessage(props) {
   const { text, uid, photoURL,createdAt } = props.message;
-  const datestamp = new Date(createdAt.toDate()).toDateString();
+  const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
+  const datestamp = new Date(createdAt*1000).toDateString();
   const timestamp = new Date(createdAt * 1000).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
   const datetime = datestamp+ " " + timestamp
-  const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
-
 
   return (<>
   <div className="center">
     <p className="timestamp">{datetime}</p>
-    </div>
+
     <div className={`message ${messageClass}`}>
       <img src={photoURL || 'https://avataaars.io/?avatarStyle=Circle&topType=LongHairBob&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=Heather&eyeType=Happy&eyebrowType=Default&mouthType=Default&skinColor=Light'} alt="User" />
       <p>{text}
       </p>
+    </div>
     </div>
   </>)
 }
