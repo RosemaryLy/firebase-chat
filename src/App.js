@@ -107,14 +107,14 @@ function ChatRoom() {
 function ChatMessage(props) {
   const { text, uid, photoURL,createdAt } = props.message;
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
-  const datestamp = new Date(createdAt*1000).toDateString();
+  const datestamp = new Date(createdAt*1000).toDateString().substring(0,10)
   const timestamp = new Date(createdAt * 1000).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
-  const datetime = datestamp+ " " + timestamp
+  const datetime = datestamp + " " + timestamp
+ console.log(datestamp)
 
   return (<>
   <div className="center">
     <p className="timestamp">{datetime}</p>
-
     <div className={`message ${messageClass}`}>
       <img src={photoURL || 'https://avataaars.io/?avatarStyle=Circle&topType=LongHairBob&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=Heather&eyeType=Happy&eyebrowType=Default&mouthType=Default&skinColor=Light'} alt="User" />
       <p>{text}
