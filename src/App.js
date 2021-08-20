@@ -107,9 +107,17 @@ function ChatRoom() {
 function ChatMessage(props) {
   const { text, uid, photoURL,createdAt } = props.message;
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
-  const datestamp = new Date(firebase.firestore.Timestamp.now()._seconds*1000).toLocaleDateString();
+  const datestamp = ()=> {
+    if (createdAt.seconds === null) {
+       return new Date().toDateString
+    }else {
+       return new Date(createdAt.seconds*1000).toDateString() 
+    }
+
+}
   const timestamp = new Date(createdAt * 1000).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
-  const datetime = datestamp+ " " + timestamp
+  const datetime = datestamp() + " " + timestamp
+ 
 
   return (<>
   <div className="center">
